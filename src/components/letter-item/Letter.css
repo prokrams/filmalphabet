@@ -1,0 +1,80 @@
+.abc-colum {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+
+    animation: anim-container-opacity 1s ease;
+}
+
+.abc-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    font-size: 2rem;
+}
+.abc-item img {
+    z-index: 1;
+    position: fixed;
+    width: 140px;
+    pointer-events: none;
+    display: none;
+
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #00000020;
+}
+.abc-item .active-cover {
+    display: flex;
+    animation: anim-cover .5s;
+}
+@keyframes anim-cover {
+    from { transform: scale(.8); }
+    to { transform: scale(1); }
+}
+
+.abc-item .letter {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--font-sans);
+    font-weight: 600;
+}
+
+.abc-item .desc {
+    width: 300px;
+    height: 30px;
+    resize: none;
+    field-sizing: content;
+    padding: .25rem .5rem;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+.abc-item .desc:hover {
+    background-color: #222222;
+}
+
+.abc-textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.abc-textarea svg {
+    position: absolute;
+    right: 0px;
+
+    padding: .25rem;
+
+    fill: var(--lightgray);
+    cursor: pointer;
+    border-radius: 5px;
+
+    transition: fill .3s;
+}
+.abc-textarea svg:hover {
+    fill: var(--white);
+}
