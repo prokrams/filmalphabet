@@ -9,7 +9,7 @@ export default function Footer() {
             <p>•</p>
             <p>поиск фильмов возможен благодаря <a href='https://kinopoiskapiunofficial.tech'>API</a></p>
             <p>•</p>
-            <p>помогала лина</p>
+            <p>помогала <b>лина</b></p>
         </div>
     )
 }
