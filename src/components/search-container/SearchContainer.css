@@ -1,0 +1,40 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    animation: anim-container-opacity .5s ease-in-out;
+}
+
+.search-wrapper-films {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+    justify-content: flex-start;
+}
+
+.search-list-films {
+    padding: 1rem;
+    width: fit-content;
+    display: flex;
+    gap: 1rem;
+    overflow-x: scroll;
+}
+
+.search-bar {
+    padding: .5rem 1rem;
+    font-size: 1.75rem;
+
+    border-radius: 50px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+}
+
+.search-info {
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+}

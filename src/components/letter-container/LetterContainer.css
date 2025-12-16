@@ -1,0 +1,8 @@
+.abc-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    animation: anim-container-opacity 1s ease-in-out;
+}

@@ -1,0 +1,17 @@
+.footer-container {
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    font-family: var(--font-sans);
+    color: var(--lightgray);
+    font-weight: 600;
+}
+.footer-container a {
+    color: var(--lightgray);   
+}
+.footer-container a:hover {
+    color: #898989;
+}
