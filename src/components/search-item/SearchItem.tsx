@@ -1,7 +1,27 @@
 import './SearchItem.css'
 import icon from '../../assets/kinopoisk-icon.svg'
 
-export default function SearchItem({img, title, year, originalTitle, idUrl, rating, country, onClick}) {
+export type filmTYPE = {
+    img: string
+    title: string
+    year: string
+    originalTitle: string
+    idUrl: string
+    rating: string
+    country: string
+    onClick: () => void
+}
+
+export default function SearchItem({
+    img, 
+    title, 
+    year, 
+    originalTitle, 
+    idUrl, 
+    rating, 
+    country, 
+    onClick
+}: filmTYPE) {
     return (
         <div className='search-item' onClick={() => onClick()}>
             <img className='search-img' src={img} alt={title} title={title}/>

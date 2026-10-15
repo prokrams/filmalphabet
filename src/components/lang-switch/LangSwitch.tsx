@@ -1,7 +1,13 @@
-import { useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 import './LangSwitch.css'
 
-export default function LangSwitch({ activeLang, setActiveLang }) {
+export default function LangSwitch({ 
+    activeLang, 
+    setActiveLang 
+}: {
+    activeLang: number
+    setActiveLang: Dispatch<SetStateAction<number>>
+}) {
     return(
         <div className='lang-container'>
             <div onClick={() => setActiveLang(0)} className={`lang-item ${activeLang === 0 ? 'active-lang-item' : ''}`}>
