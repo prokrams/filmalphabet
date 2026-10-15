@@ -1,24 +1,24 @@
 import './Lettercontainer.css'
 import { Letters } from '../letter-item/LetterItem'
-import type { coverTYPE, valueTYPE } from '../../app/App'
 import type { Dispatch, SetStateAction } from 'react'
+import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../../types/types'
 
-export default function LetterContainer({ 
+export default function LetterConstainer({ 
     values, 
     setValues, 
     activeId, 
     activeLang, 
     covers, 
     setCovers, 
-    handleChangePage 
+    onNavigate 
 }: {
     values: valueTYPE
     setValues: Dispatch<SetStateAction<valueTYPE>>
     activeId: Dispatch<SetStateAction<string | null>>
-    activeLang: number
+    activeLang: languageTYPE
     covers: coverTYPE
     setCovers: Dispatch<SetStateAction<coverTYPE>>
-    handleChangePage: (newPage: string) => void
+    onNavigate: (screen: screenTYPE) => void
 }) {
     return (
         <div 
@@ -32,7 +32,7 @@ export default function LetterContainer({
                 activeLang={activeLang} 
                 covers={covers} 
                 setCovers={setCovers} 
-                handleChangePage={handleChangePage}
+                onNavigate={onNavigate}
             />
         </div>
     )

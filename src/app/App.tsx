@@ -1,21 +1,19 @@
 import { useState } from 'react'
-import './App.css'
+import './app.css'
 
-import Header from '../components/header/Header'
+import Header from '../ui/header/header'
 import LetterContainer from '../components/letter-container/LetterContainer'
 import SearchContainer from '../components/search-container/SearchContainer'
-import Footer from '../components/footer/Footer'
+import Footer from '../ui/footer/footer'
+import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../types/types'
 
-export type valueTYPE = Record<string, string>
-export type coverTYPE = Record<string, string>
 
 export default function App() {
 
     // активная страница
-    const [activePage, setActivePage] = useState<string>('letters')
-
-    const changePage = (newPage: string) => {
-        setActivePage(newPage)
+    const [activeScreen, setActiveScreen] = useState<screenTYPE>('letters')
+    const onNavigate = (screen: screenTYPE) => {
+        setActiveScreen(screen)
     }
 
     // активный id, значение для букв и url обложки
@@ -42,35 +40,38 @@ export default function App() {
     }
 
     // активный язык
-    const [activeLang, setActiveLang] = useState<number>(0)
+    const [activeLanguage, setActiveLanguage] = useState<languageTYPE>('ru')
+    const onSwitchLanguage = (language: languageTYPE) => {
+        setActiveLanguage(language)
+    }
 
     return (
         <div className='wrapper'>
             <Header 
-                activeLang={activeLang} 
-                setActiveLang={setActiveLang} 
-                activePage={activePage}
+                activeLang={activeLanguage} 
+                setActiveLang={onSwitchLanguage} 
+                activePage={activeScreen}
             />
             {
-                activePage === 'letters' && (
+                activeScreen === 'letters' && (
                 <LetterContainer 
                     values={values} 
                     setValues={setValues} 
                     activeId={setActiveId} 
-                    activeLang={activeLang} 
+                    activeLang={activeLanguage} 
                     covers={covers} 
                     setCovers={setCovers} 
-                    handleChangePage={changePage}
+                    onNavigate={onNavigate}
                 />)
             }
             {
-                activePage === 'search' && (
+                activeScreen === 'search' && (
                 <SearchContainer 
                     letterId={activeId} 
                     handleSelectFilm={handleSelectFilm} 
-                    activeLang={activeLang} 
+                    activeLang={activeLanguage} 
                     handleTakeCovers={handleTakeCovers} 
-                    handleChangePage={changePage}
+                    onNavigate={onNavigate}
                 />)
             }
             <Footer/>

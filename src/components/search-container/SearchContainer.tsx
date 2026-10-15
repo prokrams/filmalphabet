@@ -3,6 +3,7 @@ import SearchItem from '../search-item/SearchItem.tsx'
 import type { filmTYPE } from '../search-item/SearchItem.tsx'
 import missingCover from '../../assets/missing-cover.webp'
 import './SearchContainer.css'
+import type { languageTYPE, screenTYPE } from '../../types/types'
 
 interface fullFilmTYPE extends filmTYPE {
     type: string
@@ -19,13 +20,13 @@ export default function SearchContainer({
     handleSelectFilm, 
     activeLang, 
     handleTakeCovers, 
-    handleChangePage 
+    onNavigate 
 }: {
     letterId: string | null
     handleSelectFilm: (filmName: string, filmYear: string) => void
-    activeLang: number
+    activeLang: languageTYPE
     handleTakeCovers: (covers: string) => void
-    handleChangePage: (newPage: string) => void
+    onNavigate: (screen: screenTYPE) => void
 }) {
 
     const [films, setFilms] = useState<fullFilmTYPE[]>([])
@@ -89,13 +90,13 @@ export default function SearchContainer({
                                 rating={film.rating === 'null' ? '-' : film.rating} 
                                 country={film.genres[0] && film.genres[0].genre || ''} 
                                 onClick={() => {
-                                    if (activeLang === 1) {
+                                    if (activeLang === 'ru') {
                                         handleSelectFilm(film.nameRu, film.year)
                                     } else {
                                         handleSelectFilm(film.nameEn, film.year)
                                     }
                                     handleTakeCovers(film.posterUrl)
-                                    handleChangePage('letters')}
+                                    onNavigate('letters')}
                                 }
                             />
                         )

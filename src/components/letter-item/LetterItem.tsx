@@ -1,4 +1,4 @@
-import type { coverTYPE, valueTYPE } from '../../app/App'
+import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../../types/types'
 import './Letter.css'
 import { useRef, type Dispatch, type SetStateAction } from 'react'
 
@@ -10,7 +10,7 @@ export function LetterItem({
     activeId, 
     covers, 
     setCovers, 
-    handleChangePage 
+    onNavigate 
 }: {
     id: string
     letter: string
@@ -19,7 +19,7 @@ export function LetterItem({
     activeId: Dispatch<SetStateAction<string | null>>
     covers: coverTYPE
     setCovers: Dispatch<SetStateAction<coverTYPE>>
-    handleChangePage: (newPage: string) => void
+    onNavigate: (screen: screenTYPE) => void
 }) {
 
     const handleSetCords = (e: React.MouseEvent<HTMLTextAreaElement>) => {
@@ -56,7 +56,7 @@ export function LetterItem({
                     value={values && values[id] || ''} 
                     placeholder='начать поиск' 
                     onChange={e => setValue(prev => ({...prev, [id]: e.target.value}))} 
-                    onFocus={e => {activeId(e.target.id); handleChangePage('search')}}
+                    onFocus={e => {activeId(e.target.id); onNavigate('search')}}
                     onMouseMove={e => handleSetCords(e)}
                     onMouseEnter={() => handleDisplayCover()}
                     onMouseLeave={() => handleUndisplayCover()}
@@ -78,18 +78,18 @@ export function Letters({
     values, 
     setValue, 
     activeId, 
-    handleChangePage, 
     covers, 
     setCovers, 
-    activeLang 
+    activeLang,
+    onNavigate
 }: {
     values: valueTYPE
     setValue: Dispatch<SetStateAction<valueTYPE>>,
     activeId: Dispatch<SetStateAction<string | null>>
-    handleChangePage: (newPage: string) => void
     covers: coverTYPE
     setCovers: Dispatch<SetStateAction<coverTYPE>>
-    activeLang: number
+    activeLang: languageTYPE
+    onNavigate: (screen: screenTYPE) => void
 }) {
 
     const letters_line1 = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й']
@@ -112,7 +112,7 @@ export function Letters({
                         activeId={activeId} 
                         covers={covers} 
                         setCovers={setCovers} 
-                        handleChangePage={handleChangePage}
+                        onNavigate={onNavigate}
                     />
                 )}
             </div>
@@ -131,10 +131,10 @@ export function Letters({
 
     return (
         <>
-            {activeLang === 0 && 
+            {activeLang === 'ru' && 
                 renderAllColum(letters_line1, letters_line2, letters_line3)
             }
-            {activeLang === 1 &&
+            {activeLang === 'en' &&
                 renderAllColum(letters_line4, letters_line5, letters_line6)
             }
         </>

@@ -1,22 +1,22 @@
-import LangSwitch from "../lang-switch/LangSwitch";
 import logo from '../../assets/logo.svg'
 import './Header.css'
-import type { Dispatch, SetStateAction } from 'react'
+import type { languageTYPE } from '../../types/types'
+import BadgeLanguage from '../../utils/lang-switch/badge-language'
 
 export default function Header({ 
     activeLang, 
     setActiveLang, 
     activePage
 }: {
-    activeLang: number
-    setActiveLang: Dispatch<SetStateAction<number>>
+    activeLang: languageTYPE
+    setActiveLang: (language: languageTYPE) => void
     activePage: string
 }) {
     return (
          <div className='header'>
             <img src={logo} width="200px"/>
             {activePage === 'letters' && 
-                <LangSwitch 
+                <BadgeLanguage 
                     activeLang={activeLang} 
                     setActiveLang={setActiveLang}
                 />
