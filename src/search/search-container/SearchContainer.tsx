@@ -1,19 +1,8 @@
 import { useState } from 'react'
 import SearchItem from '../search-item/SearchItem.tsx'
-import type { filmTYPE } from '../search-item/SearchItem.tsx'
 import missingCover from '../../assets/missing-cover.webp'
 import './SearchContainer.css'
-import type { languageTYPE, screenTYPE } from '../../types/types'
-
-interface fullFilmTYPE extends filmTYPE {
-    type: string
-    filmId: string
-    posterUrl: string
-    nameRu: string
-    nameEn: string
-    genres: Record<string, string>[]
-
-}
+import { type fullFilmTYPE, type keywordsTYPE, type languageTYPE, type screenTYPE } from '../../types/types.d.ts'
 
 export default function SearchContainer({ 
     letterId, 
@@ -32,23 +21,22 @@ export default function SearchContainer({
     const [films, setFilms] = useState<fullFilmTYPE[]>([])
     const [loading, setLoading] = useState(<></>)
 
-    const debounce = (func: (e: React.ChangeEvent<HTMLInputElement>) => void, ms: number) => {
+    const debounce = (func: (keywords: keywordsTYPE) => void, ms: number) => {
         let timeout: number | undefined = 0
-        return function closedFunction(e: React.ChangeEvent<HTMLInputElement>) {
+        return function closedFunction(keywords: keywordsTYPE) {
             clearTimeout(timeout)
-            timeout = setTimeout(() => func(e), ms)
+            timeout = setTimeout(() => func(keywords), ms)
         }
     }
 
-    const searchMovie = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        let keywords = e.target.value
+    const searchMovie = async (keywords: keywordsTYPE) => {
         if (keywords === '' && letterId) {
             keywords = letterId
         } else if (keywords.length >= 1) {
             setLoading(<p className='search-info'>фильмы подгружаются<br/>первый запрос обычно приходит дольше, чем остальные</p>)
         }
 
-        fetch(`https://backend-filmalphabet.onrender.com/api?keyword=${keywords}`, {
+        fetch(`http://localhost:8000/api?keyword=${keywords}`, {
             method: 'GET',
         })
         .then(res => {
@@ -68,8 +56,8 @@ export default function SearchContainer({
         })
     }
 
-    const debounceSearch = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
-        searchMovie(e)
+    const debounceSearch = debounce((keywords: keywordsTYPE) => {
+        searchMovie(keywords)
     }, 1000)
 
     return (
@@ -110,7 +98,10 @@ export default function SearchContainer({
                 type='search' 
                 autoFocus 
                 placeholder={`найти фильм на ${letterId}`} 
-                onChange={(e) => debounceSearch(e)}
+                onChange={(e) => {
+                    const keywords = e.target.value as keywordsTYPE
+                    debounceSearch(keywords)
+                }}
             />
         </div>
     )

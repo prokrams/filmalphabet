@@ -1,4 +1,4 @@
-import type { languageTYPE } from '../../types/types'
+import type { languageTYPE } from '../../../types/types'
 import './badge-language.css'
 
 export default function BadgeLanguage({ 

@@ -1,16 +1,6 @@
 import './SearchItem.css'
 import icon from '../../assets/kinopoisk-icon.svg'
-
-export type filmTYPE = {
-    img: string
-    title: string
-    year: string
-    originalTitle: string
-    idUrl: string
-    rating: string
-    country: string
-    onClick: () => void
-}
+import type { filmTYPE } from '../../types/types'
 
 export default function SearchItem({
     img, 
