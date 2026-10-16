@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import SearchItem from '../search-item/SearchItem.tsx'
+import FilmCard from '../film-card/film-card.tsx'
 import missingCover from '../../../assets/missing-cover.webp'
 import './SearchContainer.css'
-import { type fullFilmTYPE, type keywordsTYPE, type languageTYPE, type screenTYPE } from '../../../types/types.d.ts'
+import { type fullFilmTYPE, type keywordsTYPE, type languageTYPE, type screenTYPE, type statusTYPE } from '../../../types/types.d.ts'
+import Status from '../status/status.tsx'
 
 export default function SearchContainer({ 
     letterId, 
@@ -19,7 +20,8 @@ export default function SearchContainer({
 }) {
 
     const [films, setFilms] = useState<fullFilmTYPE[]>([])
-    const [loading, setLoading] = useState(<></>)
+    const [status, setStatus] = useState<statusTYPE>('idle')
+    const [error, setError] = useState<string>()
 
     const debounce = (func: (keywords: keywordsTYPE) => void, ms: number) => {
         let timeout: number | undefined = 0
@@ -33,7 +35,7 @@ export default function SearchContainer({
         if (keywords === '' && letterId) {
             keywords = letterId
         } else if (keywords.length >= 1) {
-            setLoading(<p className='search-info'>фильмы подгружаются<br/>первый запрос обычно приходит дольше, чем остальные</p>)
+            setStatus('loading')
         }
 
         fetch(`http://localhost:8000/api?keyword=${keywords}`, {
@@ -41,18 +43,17 @@ export default function SearchContainer({
         })
         .then(res => {
             if (res.ok) {
-                setLoading(<></>)
-                console.log(res, loading)
+                setStatus('success')
                 return res.json()
             }
         })
         .then(json => {
             setFilms(json.films)
-            console.log(json.films)
         })
-        .catch(e => {
-            setLoading(<p className='search-info'>выходит ошибка, видимо сегодня без фильмов...<br/>{`${e}`}</p>)
-            console.error(e)
+        .catch(err => {
+            setStatus('failed')
+            setError(err)
+            console.error(err)
         })
     }
 
@@ -68,7 +69,7 @@ export default function SearchContainer({
                     .filter(film => film.type === "FILM")
                     .map(film => {
                         return (
-                            <SearchItem
+                            <FilmCard
                                 key={film.filmId} 
                                 img={film.posterUrl === 'https://kinopoiskapiunofficial.tech/images/posters/kp/no-poster.png' ? missingCover : film.posterUrl} 
                                 title={film.nameRu == null ? film.nameEn : film.nameRu} 
@@ -91,8 +92,7 @@ export default function SearchContainer({
                     })}
                 </div>}
             </div>
-            {films.length <= 0 ? <p className='search-info'>по данному запросу ничего не найдено</p> : <></>}
-            {loading}
+            <Status status={status} error={error}/>
             <input 
                 className='search-bar' 
                 type='search' 

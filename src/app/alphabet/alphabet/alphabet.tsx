@@ -1,4 +1,4 @@
-import './letter-container.css'
+import './alphabet.css'
 import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../../../types/types'
 import Letters from '../letters/letters'
 

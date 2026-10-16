@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './app.css'
 
 import Header from '../shared/header/header'
-import LetterContainer from './alphabet/letter-container/letters-container'
+import LetterContainer from './alphabet/alphabet/alphabet'
 import SearchContainer from './search/search-container/SearchContainer'
 import Footer from '../shared/footer/footer'
 import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../types/types'

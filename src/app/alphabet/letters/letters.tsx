@@ -28,8 +28,8 @@ export default function Letters({
             <div className='alphabet-letters'>
                 {alphabet.map((letter, i) =>
                     <LetterItem
-                        id={letter}
                         key={i}
+                        id={letter}
                         letter={letter}
                         values={values}
                         covers={covers}

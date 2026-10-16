@@ -44,16 +44,16 @@ export function LetterItem({
 
     return (
         <div className='alphabet-letter'>
-            <p>{letter}</p>
-            <img 
+            <p className={values[id] ? 'active' : ''}>{letter}</p>
+            {covers[id] && <img 
                 ref={coverRef} 
-                src={covers && covers[id] || undefined} 
-                alt=''
-            />
+                src={covers[id] || undefined} 
+                alt={`обложка к фильму ${values[id]}`}
+            />}
             <div className='alphabet-textarea'>
                 <textarea
                     id={id} 
-                    value={values && values[id] || ''} 
+                    value={values[id] || ''} 
                     placeholder='начать поиск' 
 
                     onChange={e => onChangeValue(id, e.target.value)} 
