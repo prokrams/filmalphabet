@@ -2,8 +2,8 @@ import { useState } from 'react'
 import './app.css'
 
 import Header from '../shared/header/header'
-import LetterContainer from '../letters/letter-container/LetterContainer'
-import SearchContainer from '../search/search-container/SearchContainer'
+import LetterContainer from './alphabet/letter-container/LetterContainer'
+import SearchContainer from './search/search-container/SearchContainer'
 import Footer from '../shared/footer/footer'
 import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../types/types'
 

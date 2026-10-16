@@ -1,4 +1,4 @@
-import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../../types/types'
+import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../../../types/types'
 import './Letter.css'
 import { useRef, type Dispatch, type SetStateAction } from 'react'
 

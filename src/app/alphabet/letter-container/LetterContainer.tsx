@@ -1,7 +1,7 @@
 import './Lettercontainer.css'
 import { Letters } from '../letter-item/LetterItem'
 import type { Dispatch, SetStateAction } from 'react'
-import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../../types/types'
+import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../../../types/types'
 
 export default function LetterConstainer({ 
     values, 
