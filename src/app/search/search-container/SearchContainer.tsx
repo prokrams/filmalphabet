@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import SearchItem from '../search-item/SearchItem.tsx'
-import missingCover from '../../assets/missing-cover.webp'
+import missingCover from '../../../assets/missing-cover.webp'
 import './SearchContainer.css'
-import { type fullFilmTYPE, type keywordsTYPE, type languageTYPE, type screenTYPE } from '../../../types/types'
+import { type fullFilmTYPE, type keywordsTYPE, type languageTYPE, type screenTYPE } from '../../../types/types.d.ts'
 
 export default function SearchContainer({ 
     letterId, 

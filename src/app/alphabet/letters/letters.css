@@ -1,0 +1,10 @@
+.alphabet-letters {
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-between;
+    gap: .75rem;
+
+    animation: anim-container-opacity 1s ease;
+}

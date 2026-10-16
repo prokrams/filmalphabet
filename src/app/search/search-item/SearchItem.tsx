@@ -1,6 +1,6 @@
 import './SearchItem.css'
-import icon from '../../assets/kinopoisk-icon.svg'
-import type { filmTYPE } from '../../../types/types'
+import icon from '../../../assets/kinopoisk-icon.svg'
+import type { filmTYPE } from '../../../types/types.d.ts'
 
 export default function SearchItem({
     img, 

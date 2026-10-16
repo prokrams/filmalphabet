@@ -1,5 +1,5 @@
 import logo from '../../assets/logo.svg'
-import './Header.css'
+import './header.css'
 import type { languageTYPE } from '../../types/types'
 import BadgeLanguage from './badge-language/badge-language'
 

@@ -68,6 +68,15 @@ h1 {
   line-height: 1.1;
 }
 
+button {
+  margin: auto;
+  padding: 0;
+
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
 @keyframes anim-container-opacity {
     from { opacity: 0; }
     to { opacity: 1; }

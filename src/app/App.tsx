@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './app.css'
 
 import Header from '../shared/header/header'
-import LetterContainer from './alphabet/letter-container/LetterContainer'
+import LetterContainer from './alphabet/letter-container/letters-container'
 import SearchContainer from './search/search-container/SearchContainer'
 import Footer from '../shared/footer/footer'
 import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../types/types'
@@ -21,6 +21,30 @@ export default function App() {
     const [values, setValues] = useState<valueTYPE>({})
     const [covers, setCovers] = useState<coverTYPE>({})
 
+    
+    const onClearLetter = (id: string) => {
+        setValues(prev => ({ 
+            ...prev, 
+            [id]: '' })
+        ) 
+        setCovers(prev => ({ 
+            ...prev, 
+            [id]: '' })
+        )
+    }
+
+    const onChangeValue = (id: string, value: string) => {
+        setValues(prev => ({
+            ...prev,
+            [id]: value
+        }))
+    }
+
+    const onChangeActiveId = (id: string) => {
+        setActiveId(id)
+    }
+
+    
     const handleTakeCovers = (cover: string) => {
         if (activeId) {
             setCovers(prev => ({
@@ -55,13 +79,14 @@ export default function App() {
             {
                 activeScreen === 'letters' && (
                 <LetterContainer 
-                    values={values} 
-                    setValues={setValues} 
-                    activeId={setActiveId} 
-                    activeLang={activeLanguage} 
-                    covers={covers} 
-                    setCovers={setCovers} 
+                    onChageActiveId={onChangeActiveId} 
+                    onChangeValue={onChangeValue} 
                     onNavigate={onNavigate}
+                    onClearLetter={onClearLetter}
+
+                    values={values} 
+                    activeLang={activeLanguage} 
+                    covers={covers}
                 />)
             }
             {
