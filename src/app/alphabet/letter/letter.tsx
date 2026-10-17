@@ -2,6 +2,7 @@ import CrossIcon from '../../../assets/cross-icon'
 import type { coverTYPE, screenTYPE, valueTYPE } from '../../../types/types'
 import './letter.css'
 import { useRef } from 'react'
+import missingCover from '../../../assets/missing-cover.png'
 
 export function LetterItem({ 
     id, 
@@ -47,7 +48,7 @@ export function LetterItem({
             <p className={values[id] ? 'active' : ''}>{letter}</p>
             {covers[id] && <img 
                 ref={coverRef} 
-                src={covers[id] || undefined} 
+                src={covers[id] === 'https://kinopoiskapiunofficial.tech/images/posters/kp/no-poster.png' ? missingCover : covers[id]} 
                 alt={`обложка к фильму ${values[id]}`}
             />}
             <div className='alphabet-textarea'>

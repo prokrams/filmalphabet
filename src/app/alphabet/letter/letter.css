@@ -1,84 +1,112 @@
 .alphabet-letter {
-    position: relative;
-    display: flex;
-    align-items: center;
-    
-    font-size: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  font-size: 2rem;
 }
+
 .alphabet-letter img {
-    z-index: 1;
-    position: fixed;
-    width: 140px;
-    pointer-events: none;
-    display: none;
+  z-index: 1;
+  position: fixed;
+  display: none;
+  width: 140px;
+  pointer-events: none;
 
-    border-radius: 10px;
-    box-shadow: 0px 0px 8px #00000020;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #00000020;
 }
+
 .alphabet-letter p:first-child {
-    text-transform: uppercase;
-    font-family: var(--font-mono);
-    font-weight: normal;
-    color: var(--lightgray);
+  color: #363636;
+  font-family: var(--font-family);
+  font-weight: 400;
+  text-transform: uppercase;
 
-    transition: color .3s ease;
+  transition: color 0.3s ease;
 }
+
 .alphabet-letter .active-cover {
-    display: flex;
-    animation: anim-cover .5s;
+  display: flex;
+  animation: anim-cover 0.5s;
 }
+
 @keyframes anim-cover {
-    from { transform: scale(.8); }
-    to { transform: scale(1); }
+  from {
+    transform: scale(0.8);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
 .alphabet-letter p {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    font-family: var(--font-serif);
-    font-weight: 600;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-family);
+  font-weight: 600;
 }
+
 .alphabet-letter p.active {
-    color: #797979;
+  color: var(--white);
 }
 
 .alphabet-textarea {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .alphabet-textarea textarea {
-    width: 300px;
-    height: 30px;
-    resize: none;
-    field-sizing: content;
-    padding: .25rem .5rem;
-    border-radius: 10px;
-    font-size: 1.25rem;
-    cursor: pointer;
+  width: 300px;
+  height: 30px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  resize: none;
+  field-sizing: content;
+  cursor: pointer;
 }
+
 .alphabet-textarea textarea:hover {
-    background-color: #222222;
+  background-color: #222222;
 }
 
 .alphabet-textarea button {
-    margin-right: 5px;
-    position: absolute;
-    right: 0px;
+  position: absolute;
+  right: 0;
 
-    padding: .25rem;
+  fill: #363636;
+  border-radius: 5px;
+  cursor: pointer;
 
-    fill: var(--lightgray);
-    cursor: pointer;
-    border-radius: 5px;
-
-    transition: fill .3s;
+  transition: fill 0.3s;
 }
 .alphabet-textarea button:hover {
-    fill: var(--white);
+  background-color: transparent;
+}
+
+.alphabet-textarea button:hover {
+  fill: var(--white);
+}
+
+@media (max-width: 700px) {
+  .alphabet-letter {
+    width: 100%;
+  }
+
+  .alphabet-textarea {
+    flex: 1;
+  }
+
+  .alphabet-textarea textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+  }
 }

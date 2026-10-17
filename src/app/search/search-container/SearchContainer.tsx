@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import FilmCard from '../film-card/film-card.tsx'
-import missingCover from '../../../assets/missing-cover.webp'
+import missingCover from '../../../assets/missing-cover.png'
 import './SearchContainer.css'
-import { type fullFilmTYPE, type keywordsTYPE, type languageTYPE, type screenTYPE, type statusTYPE } from '../../../types/types.d.ts'
+import type { fullFilmTYPE, keywordsTYPE, languageTYPE, screenTYPE, statusTYPE } from '../../../types/types.d.ts'
 import Status from '../status/status.tsx'
 
 export default function SearchContainer({ 

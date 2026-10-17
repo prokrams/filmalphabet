@@ -12,13 +12,20 @@ export default function Header({
     onSwitchLanguage: (language: languageTYPE) => void
         activeScreen: string
 }) {
+
+    const onClearStorage = () => {
+        localStorage.removeItem('values')
+        localStorage.removeItem('covers')
+        location.reload()
+    }
+
     return (
          <div className='header'>
-            <img src={logo} width="200px"/>
+            <img src={logo} width={200} height={20}/>
             <div className='menu'>
                 {activeScreen === 'letters' && 
                     <>
-                        <button>Очистить хранилище</button>
+                        <button onClick={onClearStorage}>Очистить алфавит</button>
                         <BadgeLanguage 
                             activeLanguage={activeLanguage} 
                             onSwitchLanguage={onSwitchLanguage}

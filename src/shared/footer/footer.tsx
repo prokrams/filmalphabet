@@ -1,4 +1,4 @@
-import './Footer.css'
+import './footer.css'
 
 export default function Footer() {
     return (
@@ -9,7 +9,7 @@ export default function Footer() {
             <p className='dot'>•</p>
             <p>поиск фильмов возможен благодаря <a href='https://kinopoiskapiunofficial.tech'>API</a></p>
             <p className='dot'>•</p>
-            <p>помогала <b>лина</b></p>
+            <p>помогала лина</p>
         </div>
     )
 }

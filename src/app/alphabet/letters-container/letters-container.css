@@ -1,16 +1,18 @@
 .alphabet-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 
-    animation: anim-container-opacity 1s ease-in-out;
+  animation: anim-container-opacity 1s ease-in-out;
 }
 
 @media (max-width: 700px) {
-    .alphabet-container {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        gap: 1rem;
-    }
+  .alphabet-container {
+    width: 100%;
+    box-sizing: border-box;
+    margin-block: 1rem;
+    padding-inline: 1rem;
+    gap: 1rem;
+  }
 }
