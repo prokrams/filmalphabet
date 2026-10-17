@@ -1,8 +1,8 @@
-import './alphabet.css'
 import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../../../types/types'
 import Letters from '../letters/letters'
+import './letters-container.css'
 
-export default function LetterConstainer({ 
+export default function LettersContainer({ 
     onChageActiveId, 
     onChangeValue, 
     onNavigate,
@@ -20,10 +20,7 @@ export default function LetterConstainer({
     covers: coverTYPE
 }) {
     return (
-        <div 
-            className='abc-container' 
-            style={{alignItems: 'start'}}
-        >
+        <div className='alphabet-container'>
             <Letters
                 onChageActiveId={onChageActiveId} 
                 onChangeValue={onChangeValue} 

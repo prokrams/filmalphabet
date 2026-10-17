@@ -32,13 +32,13 @@
     font-size: 1.75rem;
 
     border-radius: 50px;
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-weight: 600;
 }
 
 .search-info {
     max-width: 90vw;
     text-align: center;
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-size: 1rem;
 }

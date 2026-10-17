@@ -17,7 +17,7 @@
 }
 .alphabet-letter p:first-child {
     text-transform: uppercase;
-    font-family: var(--font-serif);
+    font-family: var(--font-mono);
     font-weight: normal;
     color: var(--lightgray);
 
@@ -39,11 +39,11 @@
     align-items: center;
     justify-content: center;
     
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-weight: 600;
 }
 .alphabet-letter p.active {
-    color: #fff;
+    color: #797979;
 }
 
 .alphabet-textarea {

@@ -1,4 +1,4 @@
-.abc-container {
+.alphabet-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
 }
 
 @media (max-width: 700px) {
-    .abc-container {
+    .alphabet-container {
         margin-top: 1rem;
         margin-bottom: 1rem;
         gap: 1rem;

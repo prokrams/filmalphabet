@@ -4,23 +4,28 @@ import type { languageTYPE } from '../../types/types'
 import BadgeLanguage from './badge-language/badge-language'
 
 export default function Header({ 
-    activeLang, 
-    setActiveLang, 
-    activePage
+    activeLanguage, 
+    onSwitchLanguage, 
+    activeScreen
 }: {
-    activeLang: languageTYPE
-    setActiveLang: (language: languageTYPE) => void
-    activePage: string
+    activeLanguage: languageTYPE
+    onSwitchLanguage: (language: languageTYPE) => void
+        activeScreen: string
 }) {
     return (
          <div className='header'>
             <img src={logo} width="200px"/>
-            {activePage === 'letters' && 
-                <BadgeLanguage 
-                    activeLang={activeLang} 
-                    setActiveLang={setActiveLang}
-                />
-            }
+            <div className='menu'>
+                {activeScreen === 'letters' && 
+                    <>
+                        <button>Очистить хранилище</button>
+                        <BadgeLanguage 
+                            activeLanguage={activeLanguage} 
+                            onSwitchLanguage={onSwitchLanguage}
+                        />
+                    </>
+                }
+            </div>
         </div>
     )
 }

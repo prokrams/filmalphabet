@@ -56,7 +56,7 @@ export function LetterItem({
                     value={values[id] || ''} 
                     placeholder='начать поиск' 
 
-                    onChange={e => onChangeValue(id, e.target.value)} 
+                    onChange={e => {onChangeValue(id, e.target.value); localStorage.setItem('values', e.target.value)}} 
                     onFocus={e => {onChageActiveId(e.target.id); onNavigate('search')}}
 
                     onMouseMove={e => handleSetCords(e)}

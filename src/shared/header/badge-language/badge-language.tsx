@@ -2,24 +2,24 @@ import type { languageTYPE } from '../../../types/types'
 import './badge-language.css'
 
 export default function BadgeLanguage({ 
-    activeLang, 
-    setActiveLang 
+    activeLanguage, 
+    onSwitchLanguage 
 }: {
-    activeLang: languageTYPE
-    setActiveLang: (language: languageTYPE) => void
+    activeLanguage: languageTYPE
+    onSwitchLanguage: (language: languageTYPE) => void
 }) {
     return(
         <div className='lang-container'>
-            <div 
-                onClick={() => setActiveLang('ru')} 
-                className={`lang-item ${activeLang === 'ru' ? 'active-lang-item' : ''}`}>
+            <button 
+                onClick={() => onSwitchLanguage('ru')} 
+                className={`lang-item ${activeLanguage === 'ru' ? 'active-lang-item' : ''}`}>
                 РУС
-            </div>
-            <div 
-                onClick={() => setActiveLang('en')}
-                className={`lang-item ${activeLang === 'en' ? 'active-lang-item' : ''}`}>
+            </button>
+            <button 
+                onClick={() => onSwitchLanguage('en')}
+                className={`lang-item ${activeLanguage === 'en' ? 'active-lang-item' : ''}`}>
                 ENG
-            </div>
+            </button>
         </div>
     )
 }
