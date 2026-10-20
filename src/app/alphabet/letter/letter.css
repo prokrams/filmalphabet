@@ -80,8 +80,10 @@
   right: 0;
 
   fill: #363636;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: transparent;
 
   transition: fill 0.3s;
 }
