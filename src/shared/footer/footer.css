@@ -1,9 +1,9 @@
 .footer-container {
+  margin-bottom: 1rem;
   width: 100%;
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-bottom: 1rem;
 
   color: #363636;
   font-family: var(--font-family);
@@ -20,7 +20,6 @@
 
 @media (max-width: 700px) {
   .footer-container {
-    margin-top: 1rem;
     flex-direction: column;
     align-items: center;
   }

@@ -13,12 +13,12 @@ export default function BadgeLanguage({
             <button 
                 onClick={() => onSwitchLanguage('ru')} 
                 className={activeLanguage === 'ru' ? 'active' : ''}>
-                АБВ
+                абв
             </button>
             <button 
                 onClick={() => onSwitchLanguage('en')}
                 className={activeLanguage === 'en' ? 'active' : ''}>
-                ABC
+                abc
             </button>
         </div>
     )

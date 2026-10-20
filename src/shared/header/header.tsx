@@ -29,7 +29,7 @@ export default function Header({
                         <BadgeLanguage 
                             activeLanguage={activeLanguage} 
                             onSwitchLanguage={onSwitchLanguage}
-                        />
+                            />
                     </>
                 }
             </div>

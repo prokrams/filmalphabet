@@ -20,8 +20,7 @@
 .alphabet-letter p:first-child {
   color: #363636;
   font-family: var(--font-family);
-  font-weight: 400;
-  text-transform: uppercase;
+  font-weight: 500;
 
   transition: color 0.3s ease;
 }
@@ -49,7 +48,6 @@
   justify-content: center;
 
   font-family: var(--font-family);
-  font-weight: 600;
 }
 
 .alphabet-letter p.active {
