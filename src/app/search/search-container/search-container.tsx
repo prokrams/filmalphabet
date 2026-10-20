@@ -38,7 +38,7 @@ export default function SearchContainer({
             setStatus('loading')
         }
 
-        fetch(`http://localhost:8000/api?keyword=${keywords}`, {
+        fetch(`https://backend-filmalphabet.onrender.com/api?keyword=${keywords}`, {
             method: 'GET',
         })
         .then(res => {
