@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import './app.css'
 
 import Header from '../shared/header/header'
 import LetterContainer from './alphabet/letters-container/letters-container'
