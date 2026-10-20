@@ -1,7 +1,7 @@
 {
-  "name": "site-filmalphabet",
+  "name": "filmalphabet",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.1.11",
   "homepage": "https://prokrams.github.io/filmalphabet",
   "type": "module",
   "scripts": {
