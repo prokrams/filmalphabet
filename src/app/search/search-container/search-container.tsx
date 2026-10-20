@@ -4,19 +4,20 @@ import missingCover from '../../../assets/missing-cover.png'
 import './search-container.css'
 import type { fullFilmTYPE, keywordsTYPE, languageTYPE, screenTYPE, statusTYPE } from '../../../types/types'
 import Status from '../status/status.tsx'
+import BackIcon from '../../../assets/back-icon.tsx'
 
 export default function SearchContainer({ 
-    letterId, 
+    onNavigate,
     handleSelectFilm, 
-    activeLang, 
     handleTakeCovers, 
-    onNavigate 
+    letterId, 
+    activeLang 
 }: {
-    letterId: string | null
-    handleSelectFilm: (filmName: string, filmYear: string) => void
-    activeLang: languageTYPE
-    handleTakeCovers: (covers: string) => void
     onNavigate: (screen: screenTYPE) => void
+    handleSelectFilm: (filmName: string, filmYear: string) => void
+    handleTakeCovers: (covers: string) => void
+    letterId: string | null
+    activeLang: languageTYPE
 }) {
 
     const [films, setFilms] = useState<fullFilmTYPE[]>([])
@@ -93,16 +94,19 @@ export default function SearchContainer({
                 </div>}
             </div>
             <Status status={status} error={error}/>
-            <input 
-                className='search-bar' 
-                type='search' 
-                autoFocus 
-                placeholder={`найти фильм на ${letterId}`} 
-                onChange={(e) => {
-                    const keywords = e.target.value as keywordsTYPE
-                    debounceSearch(keywords)
-                }}
-            />
+            <div className='search-bar'>
+                <button onClick={() => onNavigate('letters')}><BackIcon/></button>
+                <input 
+                    className='search-input' 
+                    type='search' 
+                    autoFocus 
+                    placeholder={`найти фильм на ${letterId}`}
+                    onChange={(e) => {
+                        const keywords = e.target.value as keywordsTYPE
+                        debounceSearch(keywords)
+                    }}
+                    />
+            </div>
         </div>
     )
 }

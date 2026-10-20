@@ -33,9 +33,25 @@
 
 .search-bar {
   margin-bottom: 2rem;
+  display: flex;
+  gap: .5rem;
+}
+.search-bar button {
+  padding: 1rem;
+
+  border-radius: 50px;
+}
+
+.search-input {
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-family: var(--font-family);
   font-size: 1.75rem;
   font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .search-input {
+    font-size: 1.25rem;
+  }
 }

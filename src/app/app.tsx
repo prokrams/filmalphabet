@@ -3,7 +3,7 @@ import './app.css'
 
 import Header from '../shared/header/header'
 import LetterContainer from './alphabet/letters-container/letters-container'
-import Alphabet from './search/search-container/search-container'
+import SearchContainer from './search/search-container/search-container'
 import type { coverTYPE, languageTYPE, screenTYPE, valueTYPE } from '../types/types'
 import Footer from '../shared/footer/footer'
 
@@ -105,12 +105,13 @@ export default function App() {
             }
             {
                 activeScreen === 'search' && (
-                <Alphabet 
-                    letterId={activeId} 
+                <SearchContainer 
                     handleSelectFilm={handleSelectFilm} 
-                    activeLang={activeLanguage} 
                     handleTakeCovers={handleTakeCovers} 
                     onNavigate={onNavigate}
+                    
+                    letterId={activeId} 
+                    activeLang={activeLanguage} 
                 />)
             }
             <Footer/>

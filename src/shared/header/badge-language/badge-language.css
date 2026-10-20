@@ -3,7 +3,3 @@
   gap: 0.5rem;
   border-radius: 50px;
 }
-
-.lang-container button.active {
-  background-color: #363636;
-}
